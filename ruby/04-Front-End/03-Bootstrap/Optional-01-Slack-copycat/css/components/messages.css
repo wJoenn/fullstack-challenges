@@ -1,0 +1,20 @@
+.messages > h2 {
+  font-size: 24px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #7e747a79;
+  margin-bottom: 25px;
+}
+
+.message {
+  display: flex;
+  gap: 15px;
+  color: rgb(201, 201, 201);
+}
+
+.message p {
+  margin-bottom: 15px;
+}
+
+code {
+  color: #a83c89;
+}

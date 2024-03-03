@@ -1,0 +1,31 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700");
+@import url("https://use.fontawesome.com/releases/v6.1.2/css/all.css");
+
+/* Components */
+@import url("components/calendar.css");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", "Helvetica", "sans-serif";
+  background-color: rgb(25, 25, 25);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  max-width: 900px;
+  padding: 70px 100px;
+  background-color: rgb(155, 210, 240);
+  border-radius: 5px;
+}

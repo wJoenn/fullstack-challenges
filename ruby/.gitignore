@@ -1,0 +1,7 @@
+.DS_Store
+*.psd
+Gemfile.lock
+news.sqlite3
+*.vscode/
+Solutions
+node_modules

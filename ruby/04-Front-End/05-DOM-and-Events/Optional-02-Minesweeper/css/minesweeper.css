@@ -1,0 +1,66 @@
+.opened {
+  background: url('../img/opened.svg');
+}
+
+.mine {
+  background: url('../img/mine.png');
+}
+
+.mine-neighbour-1 {
+  background: url('../img/1.svg');
+}
+
+.mine-neighbour-2 {
+  background: url('../img/2.svg');
+}
+
+.mine-neighbour-3 {
+  background: url('../img/3.svg');
+}
+
+.mine-neighbour-4 {
+  background: url('../img/4.svg');
+}
+
+.mine-neighbour-5 {
+  background: url('../img/5.svg');
+}
+
+.mine-neighbour-6 {
+  background: url('../img/6.svg');
+}
+
+.mine-neighbour-7 {
+  background: url('../img/7.svg');
+}
+
+.mine-neighbour-8 {
+  background: url('../img/8.svg');
+}
+
+.unopened {
+  background: url('../img/unopened.svg');
+  cursor: pointer;
+}
+
+.flagged {
+  background: url('../img/flag.svg');
+}
+
+.question {
+  background: url('../img/question.svg');
+}
+
+#minesweeper {
+  margin: auto;
+  margin-top: 3em;
+  border: 1px solid #999;
+  border-collapse: collapse;
+  box-shadow: 0 0 10px rgb(0, 0, 0);
+}
+
+#minesweeper td {
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+}

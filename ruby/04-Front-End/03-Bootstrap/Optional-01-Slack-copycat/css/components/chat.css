@@ -1,0 +1,25 @@
+.chat {
+  padding: 25px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.chat form {
+  display: block;
+}
+
+.chat input {
+  width: 100%;
+  padding: 10px;
+  background-color: #181a1b;
+  border: 1px solid #7e747a79;
+  border-radius: 3px;
+  color: snow;
+  font-size: 16px;
+}
+
+.chat input:focus {
+  outline: none;
+}

@@ -1,0 +1,99 @@
+.calendar {
+  background-color: snow;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgb(160, 160, 160);
+  display: flex;
+  height: 400px;
+}
+
+.calendar__nav {
+  padding: 20px;
+  border-right: 2px solid rgba(150, 150, 150, 0.7);
+  display: flex;
+  flex-direction: column;
+}
+
+.nav__btn {
+  border: none;
+  padding: 0.5em 0;
+  width: 100px;
+  text-align: left;
+  color: rgb(85, 155, 192);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.calendar__main {
+  padding: 20px;
+  position: relative;
+  width: 460px;
+}
+
+.month {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.month span {
+  color: rgb(85, 155, 192);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.month h2 {
+  font-size: 15px;
+}
+
+.week {
+  display: flex;
+  gap: 10px;
+  font-size: 13px;
+  border-bottom: 1px solid lightgrey;
+  font-weight: 500;
+}
+
+.week__day {
+  color: rgb(85, 155, 192);
+  padding: 10px;
+  width: 50px;
+}
+
+.days {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 13px;
+  gap: 10px;
+}
+
+.day {
+  padding: 10px;
+  text-align: center;
+  width: 50px;
+}
+
+.day-grey {
+  color: grey;
+}
+
+.yoga {
+  cursor: pointer;
+  background-color: rgba(85, 155, 192, 0.7);
+  color: snow;
+}
+
+.today {
+ border: 2px solid lightgrey;
+}
+
+.calendar__form {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: -10;
+  transition: opacity 0.3s ease;
+  width: 100%;
+  height: 100%;
+  background-color: snow;
+}

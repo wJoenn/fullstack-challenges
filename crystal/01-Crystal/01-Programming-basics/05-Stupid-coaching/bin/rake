@@ -1,0 +1,5 @@
+#!/usr/bin/env crystal
+
+system "crystal spec -v"
+print "\nAmeba: "
+system "ameba"

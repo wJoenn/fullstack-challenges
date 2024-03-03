@@ -1,0 +1,73 @@
+@import url("minesweeper.css");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #181a1b;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 50px;
+}
+
+.hover h1, h3 {
+  color: snow;
+}
+
+.hover button {
+  padding: 10px 30px;
+  background-color: rgba(255, 250, 250, 0.8);
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 0;
+  color: rgb(59, 59, 102);
+  transition: 0.1s all ease;
+}
+
+.hover button:hover {
+  background-color: rgba(255, 250, 250, 1);
+}
+
+.wrapper {
+  padding: 75px;
+  background-image: linear-gradient(135deg, rgb(78, 78, 114), rgb(32, 32, 51));
+  border-radius: 5px;
+  display: flex;
+  gap: 100px;
+}
+
+.leaderboard {
+  box-shadow: 0 0 10px black;
+  padding: 20px;
+  border-radius: 5px;
+  color: rgb(200, 200, 200);
+}
+
+.leaderboard h2 {
+  margin-bottom: 10px;
+}
+
+.leaderboard__item {
+  display: flex;
+  justify-content: space-between;
+}

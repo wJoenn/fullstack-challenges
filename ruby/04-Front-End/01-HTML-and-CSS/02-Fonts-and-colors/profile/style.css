@@ -1,0 +1,94 @@
+*
+  {
+    margin: 0;
+    padding: 0;
+  }
+
+html
+  {
+    color-scheme: dark light;
+  }
+
+body
+  {
+    background-color: #0D0C1D;
+    color: #F5F5F5;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    height: 100vh;
+  }
+
+#banner
+  {
+    background-image: linear-gradient(to right,
+                                    rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 10%,
+                                    rgba(0, 0, 0, 0.3) 90%, rgba(0, 0, 0, 0.7) 10%),
+                                    url(images/bannerBackground.jpg);
+    background-size: cover;
+    background-position: 40%;
+    height: 200px;
+    max-height: 33vh;
+    margin-bottom: 40px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    box-sizing: border-box;
+  }
+
+h1
+  {
+    margin: 10px 0;
+  }
+
+img
+  {
+    max-width: 150px;
+    border-radius: 50px;
+    position: absolute;
+    right: 10px;
+    top: 90px;
+    border: 2px solid #161B33;
+  }
+
+ul
+  {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    left: 18px;
+    bottom: -30px;
+  }
+
+a
+  {
+   color: #F5F5F5;
+   text-decoration: none;
+   padding: 12px;
+   font-size: 20px;
+  }
+
+a:hover
+  {
+   cursor: pointer;
+   color: #E26D5A;
+  }
+
+main
+  {
+    padding: 30px;
+    line-height: 1.4em;
+  }
+
+p
+  {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+span
+  {
+    color: #E26D5A;
+    font-weight: bold;
+  }

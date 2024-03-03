@@ -1,0 +1,48 @@
+/* Importing components */
+@import url("components/nav.css");
+@import url("components/form.css");
+@import url("components/footer.css");
+
+/* Importing layouts */
+@import url("pages/guidelines.css");
+
+* {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+h1, .main-title {
+  font-size: 3.8rem;
+  color: #434343;
+  font-weight: lighter;
+  margin: 2.8rem auto 1.4rem auto
+}
+
+h2, .title {
+  font-size: 2.8rem;
+  color: #b6b7b7;
+  font-weight: lighter;
+  padding-top: 5.6rem;
+  margin: 3.3rem 0 0.6rem 0;
+}
+
+h3, .subtitle {
+  font-size: 2rem;
+  color: #b6b7b7;
+  font-weight: normal;
+  margin: 3.2rem 0 0.5rem 0;
+}
+
+p, .content {
+  color: black;
+  font-size: 1.2rem;
+  line-height: 3.2rem;
+}
+
+a, a:hover, a:visited, a:active {
+  text-decoration: none;
+  color: #574FB0;
+}

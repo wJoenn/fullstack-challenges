@@ -1,0 +1,6 @@
+source "https://rubygems.org"
+
+gem "better_errors"
+gem "sinatra"
+gem "sinatra-contrib"
+gem "thin"

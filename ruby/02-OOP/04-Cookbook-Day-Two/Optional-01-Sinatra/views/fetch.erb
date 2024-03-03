@@ -1,0 +1,16 @@
+<h2>Here are all your recipes</h2>
+<ul>
+  <% @recipes.each_with_index do |e, i| %>
+    <li>
+      <h3>
+        <%= " #{e.name}#{' ☆' * e.rating.to_i}#{"   ---#{e.time}---"}" %>
+      </h3>
+      <a href="/recipe?name=<%= e.name %>
+                &description=<%= e.description %>
+                &rating=<%= e.rating %>
+                &time=<%= e.time %>">click</a>
+    </li>
+  <% end %>
+</ul>
+
+<a href=""></a>

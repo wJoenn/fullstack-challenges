@@ -1,0 +1,54 @@
+#timer {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: snow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#timer {
+  font-size: 100px;
+}
+
+.racer-table td {
+  height: 100px;
+  width: 100px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.racer-table td.active {
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+#player1-race td.active {
+  background-image: url("images/player_1.png");
+}
+
+#player2-race td.active {
+  background-image: url("images/player_2.png");
+}
+
+.racer-table .finish {
+  background-image: url("images/finish.png");
+  background-size: 100%;
+}
+
+#player1-race .finish.active {
+  background-image: url("images/player_1.png"), url("images/finish.png");
+}
+
+#player2-race .finish.active {
+  background-image: url("images/player_2.png"), url("images/finish.png");
+}
+
+#result {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}

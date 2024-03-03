@@ -1,0 +1,19 @@
+.btn {
+  padding: 17px 40px;
+  background-color: rgba(80, 54, 151, 1);
+  transition: background-color 0.3s ease;
+  width: max-content;
+  border-radius: 50px;
+  color: snow;
+  font-weight: 500;
+}
+
+.btn:hover {
+  background-color: rgba(80, 54, 151, 1);
+}
+
+@media(min-width: 640px) {
+  .btn {
+    background-color: rgba(80, 54, 151, 0.3);
+  }
+}

@@ -1,0 +1,78 @@
+h2:last-of-type {
+  border-top: 1px solid #e5e5e5;
+}
+
+form {
+  padding: 3rem;
+  margin-top: 2.5rem;
+  border: 2px solid #e5e5e5;
+  border-radius: 4px;
+}
+
+form :first-child{
+  margin-top: 0;
+}
+
+label, form p {
+  font-family: Helvetica, Arial, sans-serif;
+  display: block;
+  margin-top: 3.3rem;
+  margin-bottom: 0.7rem;
+  font-size: 1.8rem;
+}
+
+input[type="radio"] + label, input[type="checkbox"] + label {
+  display: inline;
+  margin-right: 2rem;
+}
+
+input[type="radio"], input[type="checkbox"] {
+  margin-bottom: 0.8rem;
+}
+
+input[type="radio"] + label::after, input[type="checkbox"] + label::after {
+  content: '\A';
+  white-space: pre;
+}
+
+input, select, textarea {
+  margin-top: 0.8rem;
+}
+
+input[type="text"], input[type="date"], input[type="number"], input[type="submit"], select, textarea {
+  width: 100%;
+  height: 4rem;
+  font-size: 1.8rem;
+  border-radius: 5px;
+  border: 1px solid #e5e5e5;
+  padding: 0.6rem 1.4rem;
+}
+
+textarea {
+  height: 12.8rem;
+}
+
+input[type="submit"] {
+  background-color: #151515;
+  color: white;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+.error {
+  border: 1px solid #ff8a8a;
+}
+
+.error-message {
+  font-style: italic;
+  font-size: 1em;
+  color: #ea1116;
+  margin-top: 0;
+}
+
+.error-message::before {
+  content: '*';
+  display: inline-block;
+  margin-right: 0.2em;
+  color: #ea1116;
+}

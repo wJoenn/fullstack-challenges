@@ -1,0 +1,57 @@
+.navbar {
+  display: flex;
+  flex-direction: column;
+  background-color: #3c2e3a;
+  justify-content: start;
+  gap: 25px;
+  padding: 25px;
+  align-items: flex-start;
+  width: 215px;
+  flex-shrink: 0;
+}
+
+.navbar > h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: -15px;
+}
+
+.navbar__user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.navbar__user__status {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: rgb(25, 25, 25);
+}
+
+.user-active {
+  width: 9px;
+  height: 9px;
+  background-color: #15b49c;
+  border: 1px solid rgb(25, 25, 25);
+}
+
+.navbar__section {
+  width: 100%;
+}
+
+.navbar__section__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: snow;
+}
+
+.navbar__section__title > h3 {
+  font-size: 16px;
+}
+
+.navbar__section__channel {
+  margin-bottom: 5px;
+}

@@ -1,0 +1,434 @@
+mskog/visual-studio-code-plugins-for-ruby-2096,Visual Studio Code plugins for Ruby and Rails,"A quick list of all the plugins I use for Ruby on Rails development.
+
+You will need this for syntax support and such so this is a must have.
+
+This one is a must have. It will enable ""Go to definition"" in Ruby for all classes, modules and methods. It also has context-aware code completion and documentation. Extremely handy. If you only choose one of the plugins on this list(except for the Ruby one) then make it this one. It is quite something!
+
+If you use Rubocop then this extension will let your format your code using Rubocop. This is highly recommended as it will enforce a consistent style in your code. Especially if you are working in a team.
+
+Pro tip: If you use Spring then you can use spring-commands-rubocop to make a binstub for Rubocop and then it will run much faster. You will need to set the ""ruby.rubocop.executePath"" setting in VSCode to ""bin/"" for this to work properly.
+
+If you are using the default Rails way of organizing directories and such then this plugin can make navigating your application a breeze. You can use it to quickly navigate between controller actions, model, views and even specs.
+
+This will enable the use of ""Go to definition"" in VSCode for view partials. Very handy for quickly navigating through a complex view structure.
+
+This is a simple extension that will open the latest migration in your application. I use it all the time so it is absolutely worth having.
+
+If you use RSpec then this is a handy extension. It will make it very easy to add focus: true to your specs to run only that spec.
+
+Quickly toggle ERB tags in your views. Will save you quite a bit of typing.
+
+Syntax support for Haml.
+
+This uses the haml-lint gem to help you make your Haml code clean and consistent.
+
+Add end automatically to methods and statements.
+
+If you use the Dash documentation browser for Mac then you can use this extension to quickly jump to the documentation for any class or method.
+
+Quickly jump to the open file on GitHub.
+
+This will copy the relative path of any file as defined by the project root. Great for doing things like running a specific spec and such.
+
+Will add intellisense for any CSS class in your project, even those defined in external style sheets like Bootstrap.
+
+No-nonsense formatter for HTML, CSS, JavaScript and more. It is opinionated and does not allow for much configuration. It is perfect if you want something simple and don't want to fiddle with configuration files.
+
+Another formatter. This one is a ""meta formatter"" that uses other formatters. You can thus use Prettier for CSS and something else for HTML, all managed by Unibeautify. This is also the only formatter that I know of that does a decent job of handling ERB templates. Use the Pretty diff formatter for ERB templates and you will have a pretty good time.
+
+Vim
+This will essentially turn VSCode into VIM for editing. I gave this a shot and didn't look back. It might take you a couple of weeks to get proficient with it but after that you'll be golden. This is in my opinion an excellent plugin and it will make you a lot more efficient. Check out this article for a very good introduction to this plugin.
+
+There you go! Those are all my plugins for Ruby on Rails development. Did I miss one? Let me know on Twitter!",Magnus Skog,true
+molly_struve/level-up-your-ruby-skillz-working-with-arrays-hnn,Level Up Your Ruby Skillz: Working With Arrays,"When I first started out, there was a senior engineer that I worked with who was a wizard when it came to working with arrays. He taught me all the best tricks to writing succinct and clean code when it came to dealing with arrays. Here are the methods that I find the most useful and I think are good to have in your Ruby toolbox right from the start.
+
+If you want to jump straight to the code without the explanations checkout the cheatsheet at the bottom!
+
+
+
+Before we dive into some of the fancier methods above, we first need to start with the most basic, each. each will call a block once for every given element in an array. When it is done, it will return the original array. That last part is key and is easy to forget. Even those of us who have been working with Ruby for a while sometimes forget it. Here is an example.
+
+That code will produce the following result when run in a console. NOTE: In the example below and those that follow, irb simply means I am in a Ruby console.
+
+For each number in our array we printed ""hi"" plus that number. Then, after we have finished traversing the entire array, our original array is returned.
+
+Keep in mind, I am using the do/end block notation above, but you can also use the bracket syntax for your block which is shown below.
+
+As you can see, regardless of syntax, the result is the same. I am going to continue to use the do/end syntax throughout this guide because I think it makes the code and logic easier to understand. With that said, all of these methods will work with the bracket syntax as well.
+
+
+
+In the early days, when I was new to Ruby, every time I wanted to build an array I did something like this:
+
+I quickly learned there was a better way, and that is by using map. map returns a new array with the results of executing the block once for every element in your original array. Here is an example:
+
+We add 2 to every number in our original array and then group those results up into a new array, which is returned. Now our code is a bit cleaner and more compact.
+
+
+
+map is great for collecting a set of results, but what happens when you want to map over nested arrays? That is when flat_map comes in handy. If you find yourself with a set of nested arrays then you might want to checkout flat_map. For example, say you have code like this with a couple of nested arrays.
+
+We get a single level array, which is what we wanted, but how could we tighten this up? Let's try using map.
+
+Hmmm, that is not quite what we want. We want a flat, single level array and map is creating a nested one. In order to flatten that nested array we can use flat_map.
+
+flat_map works similar to map in that it collects the results from your block into an array, but as a bonus, it will flatten it. Under the hood, flat_map is concatenating all of the inner arrays into a single one. Using flat_map returns that single level array we wanted.
+
+
+
+Similar to the map example, when I was starting out, if I wanted to conditionally select elements from an array, for example, choose all the even numbers, I would do something like this:
+
+It works, but there is an even more succinct way, and that is by using select. select returns an array containing all elements for which the given block returns a true value. This means we can rewrite our above block of code like this!
+
+
+
+Now we are going to kick it up a notch. What if instead of wanting all the even numbers back from an array, you only want the first even number that you find? For that you can use detect. detect will return the first entry for which your block evaluates to true. So if we run a similar block of code as above, but replace select with detect, you can see we get back only the first even number.
+
+One important thing to note here is that we are now returning a number(our entry) and NOT an array.
+
+But what happens if our block never evaluates to true? What if there are no even numbers in our array? In that case, detect will return nil.
+
+To summarize, detect will return the first entry your block evaluates to true for OR it will return nil if no entry evaluates to true for your block.
+
+
+
+Now let's look at the inverse of select, which is reject. reject will return all entries for which your block evaluates FALSE. So instead of doing this:
+
+We can simplify the above code and do something like this instead:
+
+This time we will return each number which is not even, so those where number.even? returns false.
+
+
+
+We have just seen two ways we can filter through arrays in Ruby using select and reject. But what if you want to straight up separate your single array into two arrays, one for even numbers and one for odd numbers? One way to accomplish this is by doing:
+
+But, there is an even better way, you can use partition! Hold on to your seats for this one. partition will return TWO arrays, the first containing the elements of the original array for which the block evaluated true and the second containing the rest. This means we can take what we wrote above and simplify it to:
+
+As you can see, partition will return two arrays, one with even numbers, and one for odd numbers. If we want to assign our even and odd variables all we have to do is
+
+However, as you can probably guess, there is an even better way! We can eliminate that single result variable altogether and write something like this
+
+This syntax is going to automatically assign the first array to even and the second array to odd. You can use this array assignment syntax anytime you are dealing with nested arrays. Here is an example of how you can breakup 3 arrays.
+
+
+
+count for the most part is pretty self explanatory, by default, it will count the number of elements in your array.
+
+But, did you know it can do so much more? For starters, can pass count an argument. If you pass count an argument, it will count the number of times that argument occurs in your array.
+
+You can also pass count a block!😲When passed a block, count will return the count for the number of entries that block evaluates to true for.
+
+Every number that is odd in our array was counted and the result returned was 4.
+
+
+
+Last but not least, I want to talk about traversing an array with an index. Often when we want to keep track of where we are in an array of elements we will do something like this.
+
+However, there is a better way! You can use with_index with each, or any of the methods I listed above, to help you keep track of where you are in an array. Here are some examples of how you can use it. (REMEMBER: Array indexes start at 0 😃)
+
+In this example we are simply iterating over our array and printing out the index for each element.
+
+In this example, we are combining the index with the letter in our array to form a new array using the map method.
+
+This example is a little trickier. Here we are using our index to help us select the element in our array that is at index equal to 2. In this case, that element is ""c"".
+
+
+
+The last tidbit of knowledge I want to leave you with is that any of the methods above that return an array(all except count and detect), you can chain together. For these examples I am going to use bracket notation because I think it's easier to read chaining methods from left to right rather than up and down.
+
+For example, you can do this:
+
+Let's break down what is happening here given what we learned above.
+1) map is going to add 2 to each of our array elements and return [3, 4, 5, 6]
+2) select will select only the even numbers from that array and return [4, 6]
+3) reject will remove any number equal to 6 which leaves us with [4]
+4) Our final map will prepend ""hi"" to that 4 and return [""hi 4""]
+
+
+Congrats, you made it all the way to the end! Hopefully, you find these array methods useful as you are writing your Ruby code. If anything is unclear, PLEASE let me know in the comments. This is my first time writing a tutorial so I welcome any and all feedback 🤗
+
+
+If you would like all of these code examples without the lengthy explanations checkout this cheatsheet that @lukewduncan
+ graciously put together!",Molly Struve,true
+molly_struve/level-up-your-ruby-skillz-working-with-hashes-4bid,Level Up Your Ruby Skillz: Working With Hashes,"Last week I tackled Ruby arrays and shared some of the methods I find the most useful for working with them. This week I want to talk about HASHES! Before I dive head first into my favorite methods, I want to give a quick summary of what a hash is in Ruby and how it works. The definition of a Hash straight from the docs themselves:
+
+A Hash is a dictionary-like collection(If you are a Java person, think maps) of unique keys and their values. Also called associative arrays(honestly, I have never heard this before but 🤷), they are similar to Arrays, but where an Array uses integers as its index, a Hash allows you to use any object type.
+
+One of the keys(pun intended 😉) in that definition is that a Hash allows you to use any object type as your index. Most people when they think of a Hash think of this.
+
+But hashes can be so much more in Ruby! For example, all of these are Hashes.
+
+Any object type your heart desires can be a Hash key. Now that we have the semantics and the definition down, let's get to the methods!
+
+NOTE: Just like in the array tutorial, if you see irb in the code snippets that means I am working in a Ruby console. Also, I made a code CHEAT SHEET if you want the code without all the explanations.
+
+
+
+One of the most valuable things you can do with a hash is iterate over it. One of the easiest ways to loop over a hash is to use each. I don't know about you, but when I started out using Ruby, my hash each statements looked like this.
+
+Here, I am executing my each method the same way I did for my arrays. The difference now is that pair is an array itself. The first element is my key and the second element is my value. NOTE: After executing the block for each of our key/value pairs, the original hash that we iterated over is returned.
+
+The above way works, but there is an even slicker way, you can separate that pair by passing two arguments to your block. This means you can rewrite the above like this:
+
+Now we have two separate variables, one representing the key and one representing the value.
+
+
+
+But what if we don't want all the keys and values? What if we just want the keys or just want the values? There are methods for each of those!
+
+Notice, that once again, regardless if we use each_key or each_value, we still get the original hash back after we are done iterating over it.
+
+
+
+Let's say you just want an array of the keys or you just want an array of the values from a hash. To do this, you can use keys or values. Both will return an array of the keys or values for a given hash.
+
+
+
+Another couple of pretty straight forward methods are the key and value predicates. If you want to know if a key or a value exists in a Hash then you can use key? or value?.
+
+This is pretty straightforward, but there are a couple of nuances I want to point out. For starters, when you are looking for a key, you have to make sure you are looking for the proper datatype. For example, if you have a hash with symbol keys, searching for a string will return false.
+
+Make sure the datatype you are searching for matches the datatype of your keys or values.
+
+
+
+Now we know how we can check if we have a specific key or value, but what if we want to actually look up the value for a key? Well, there is always the standard way to do it and this is what I learned first.
+
+Simple and easy. If the key is there, we return its value. If the key is not there we return nil. But what if we have some more complicated logic? For example, what if we want to return the key's value OR, if the key does not exist, we want to return some default, like 0? With what we know so far we could do this
+
+It works, but it is a pretty decent chunk of code to get it done. Instead, we can replace that large chunk of code with one simple method, fetch. fetch has a lot of options and behaviors so lets unpack each, one at a time.
+
+1) fetch with NO arguments will return the value if it is present. If the value is not present, fetch will raise an error. This is great if you want to raise an error when a key cannot be found.
+
+2) fetch WITH arguments will return the value if it is present, just like before. Here is where it gets slick and can help us out with our original use case, if you pass fetch an argument and the key is not present, it will return the argument! 🔥
+
+
+
+fetch works great when you have a single level hash and want to return a value from it using a key. But what if you have several nested hashes? For example
+
+Normally to get the value of c you would want to do
+
+which would traverse your nested hashes and return your value. But what if you are not sure whether all those levels are present? For example, let's say you are working with an API to get user data. Sometimes you find the user you are looking for and get this back.
+
+Other times, you don't find the user you want and you get this back,
+
+In this case, we can't just assume we have the user information, because if we don't have the user information, we will end up raising an error.
+
+To avoid this, we could do
+
+This ensures if we have the user data, we return the first name. If we don't have the data, then we return nil. Turns out, we can avoid ALL of this by using dig. dig extracts the nested value specified by a sequence of key objects. However, if any one of those nested keys do not exist, it will return nil. 🎉
+
+dig is great when you want to traverse a hash but are not sure what its structure might be. It allows you to work with a hash without worrying about handling a bunch of errors or doing a bunch of present? checks using if/else blocks.
+
+
+
+Now we are going to kick it up a notch. What if we have a hash where all the keys are symbols, but we want to change them all to strings? In the early days we would do this.
+
+It works, but you guessed it, now there is a better way. That better way is transform_keys. transform_keys allows you to iterate over a hash and will return a new hash. The new hash keys will be the result from executing the block for each of the original keys.
+
+IMPORTANT transform_keys(above) and transform_values(below) are only available in Ruby 2.5 and above. If you get the following error, then you are likely working with a version of Ruby below 2.5 NoMethodError: undefined methodtransform_keysfor {:a=>1, :b=>2, :c=>3}:Hash
+
+
+
+transform_values works the exact same way as transform_keys, except it allows you to update the values. When it is done executing your block, it will return a new hash with the new set of values.
+
+
+
+Now we are going to get into some familiar territory if you read my first array tutorial. Just like for arrays, you can use select for hashes! select for a hash works basically the same as an array, it returns a new hash with the key/value pairs that your block evaluated true for.
+
+
+
+Let's say you have a hash and you just want back a specific set of keys and their values. You could do something like this
+
+But Ruby has a simpler way and that is by using slice. slice will return a hash with only the keys you request via your arguments. What we have above can be simplified to
+
+
+
+Back we go again to familiar array territory. reject for a hash works the same way it does for an array. reject will return a new hash consisting of all the key/value pairs for which your block returns false.
+
+
+
+Last, but not least, we need to cover chaining. Any of the methods above that return a hash, you can chain together. For these examples I am going to use bracket notation because I think it's easier to read chaining methods from left to right, rather than up and down.
+
+Here is an example of chaining some of the above methods together.
+
+Let's break down what is happening here given what we learned above.
+1) transform_keys changes each of the hash's keys to a string and returns { ""a"" => 1, ""b"" => 2, ""c"" => 3 , ""d"" => 4}
+2) slice will select only keys ""a"" and ""b"" and their values and return { ""a"" => 1, ""b"" => 2 }
+3) reject will remove any key/value pair where the value is equal to 2, that leaves us with { ""a"" => 1 }
+4) Our final transform_values will change our hash's values into a string with ""hi"" and our number following it. The final result is {""a""=>""hi 1""}
+
+
+You made it to the end!!! Hopefully you are feeling a little more comfortable with Ruby hashes now and have a couple more methods in your toolbox that you can use. If you have any questions or anything needs clarification please don't hesitate to drop a question in the comments!
+
+If you want a quick reference for these methods I made a handy cheat sheet with just the code from each example.  ",Molly Struve,false
+appwrite/appwrite-oss-fund-sponsors-isar-333n,Appwrite OSS Fund Sponsors Isar,"Hi readers 👋, welcoming you back to the ""Appwrite OSS Fund"" series, where we celebrate open-source maintainers. 🎉
+🤔 What Is OSS Fund?
+On the 4th of May, the Appwrite team launched the OSS Fund, an initiative to support open-source project maintainers. Being an open-source company, we wanted to give back to the community and help as many people as we can.
+The OSS Fund is an initiative that is very close to our heart.
+Hear what our Founder and CEO has to say - The Appwrite Story:
+Announcing the Appwrite OSS Fund - Appwrite
+Appwrite provides web and mobile developers with a set of easy-to-use and integrate REST APIs to manage their core backend needs.
+appwrite.io
+📢 Announcing The Ninth Project
+After careful considerations from the committee we are thrilled to announce the ninth project:
+Appwrite
+@appwrite
+📢  Announcing the 8th OSS Fund sponsored project 📢 @grenlouis's project getleon.ai , an open-source personal assistant, is the choice of our reviewers this week 🎉 🔗 If you are looking for funds, OSS fund is still accepting applications appwrite.io/oss-fund
+13:00 PM - 28 Oct 2022
+🤔 What Is Isar?
+Isar is an open-source embedded NoSQL database for Flutter apps. It is very efficient and super easy to use. Isar apps run on all platforms and operating systems with a single codebase.
+The goal is to make using multi-threaded queries, indexes, and full-text search as easy as possible.
+Isar has detailed docs and a real-time database inspector to help developers build offline-first apps with ease.
+🤝 Meet The Maintainer
+Simon is the maintainer of Isar. He is a 25 year old Flutter developer from Munich who works at ClickUp. He spends most of his free time maintaining open-source projects.
+💡 How Did The Idea Of Isar Come Up?
+When Simon started Hive (the predecessor of Isar) there didn’t exist database packages for Flutter except for SQLite bindings.
+Most apps still put little focus on being fully functional with unstable or missing connections. He wanted to help developers to deliver great user experience and performance even if offline and that is how Isar was built.
+🚘 The Journey So Far
+Before building Isar, there was Hive, which is a lightweight and blazing fast key-value database written in pure Dart. At some point, it became clear that Hive could not cover all use cases and was not scalable enough. Simon started from scratch and developed Isar to overcome all the previous limitations and deliver the best developer experience possible.
+Fun fact: He had problems finding a name for this new database so I named it after the river in my home city.
+🗒️ Ending Notes
+As Simon continues to work on Isar, he encourages everybody to contribute to open source and says ""even adding a missing comma to docs, goes a long way"".
+He also says:
+""I would like to thank Appwrite for their fantastic commitment to open-source software and all users and maintainers of Isar for their trust and support.""
+If this story resonates with you or your friend, tell them about OSS Fund, as applications are still open:
+Appwrite OSS Fund
+Appwrite provides web and mobile developers with a set of easy-to-use and integrate REST APIs to manage their core backend needs.
+appwrite.io
+",haimantika mitra,true
+serverlessedge/matt-coulter-liberty-mutual-reminisces-about-cdk-best-practices-serverless-and-the-value-flywheel-effect-39im,"Matt Coulter (Liberty Mutual) reminisces about CDK best practices, Serverless and The Value Flywheel Effect","Serverless Craic talk to Matt Coulter, Liberty Mutual about the pioneering journey they went on bringing Liberty into Serverless.
+Matt Coulter is our guest on Ep3. of Serverless Craic
+Dave Anderson  
+We're joined today by Matt Coulter from Liberty Mutual, who's very kindly agreed to take time out of his busy schedule to come here and talk to us. Matt, do you want to give a quick intro and tell us a bit about yourself?  BTW, we are all good friends and have worked together for a long time!! 
+Matt Coulter  
+So for anyone who doesn't know me, my name is Matt Coulter, I'm an Enterprise Architect in Liberty Mutual, working out of Liberty IT in Belfast. And for the past couple of years, I've been on this serverless first, well architected journey with a lot of our teams.
+So I've been doing that primarily through a technology called AWS CDK. And that's where people might have seen me doing things like open source work with CDK patterns, or running a conference called CDK Day.
+Matt Coulter receiving the Now Go Build from Werner Vogel at AWS re:Invent
+Developer Community and CDK Patterns
+Dave Anderson  
+Full disclosure! We worked together with Matt Coulter in Liberty Mutual for a long time. So we're very familiar with a lot of this work. But it's good to have a chat about it. So I'm interested in your opinion on this.  It's one of the things that we always talk about.  How do we encourage a really strong developer community within a company? How do you find enabling engineers in a big enterprise or a big company?
+Matt Coulter  
+So it's an interesting question, and it has multiple sub components to how you answer it. Because when you talk about enabling engineers in a big company like Liberty Mutual, you're talking about large numbers of engineers. So it could be 1000s, across the globe, we're talking about as opposed to maybe a couple of small teams.
+Direction alignment, enabling constraints and walking the walk
+The most important thing is that you need to have alignment on direction. So you need to make sure that everybody there knows where they're going. That's the very first and most important thing. And that's what most people skip, because if you don't tell people the direction, everyone will just head their own way. And it'll all actively work against itself, because it becomes a competition.
+Then the second thing is you need enabling constraints, as Mark loves to call them. And that's where you set up your guardrails so that it's safe for people to experiment and go the direction you've set. They know there's a maximum level of damage that they can cause.
+And then the third thing, is you actually need to walk the walk that you're setting up. I think it's important to be able to show working software. So that you can say, I'm asking you to be Serverless First. This is how I think you should do it.  Here are working production examples showing the way that you're going to do it, as opposed to here's just a high level theory.
+Common patterns
+Mike O'Reilly  
+Like you said, there are things like enabling constraints and setting the direction.  Is that harvesting patterns? If you go across six squads in an enterprise or organisation, you'll notice that they use common patterns. It's how cloud providers identify their best managed services for things like queues, gateways or topics.  Is there a process for getting everybody to come together and move in a certain direction?
+Matt Coulter  
+There's always a challenge between allowing divergence, and then what the right point is to tell everybody, you need to converge on the right solution. If the direction is new and different to what the company has done before, providing everybody's going in the same general direction, like say for serverless, everybody is trying to use lambda and DynamoDB step functions.
+AWS Well Architected Framework
+If they're all doing it slightly differently for a while, I think that's okay. But then that's where you need a process to go to the teams and say, I see similarities in Teams 1, 7 and 32.  We need to start bringing them together to find the right way to do this. Specifically for cloud workloads, the well architected framework has been the one common language to identify what is personal preference and what is industry best practice for how this should be done. Jumping into teams and doing well architected reviews is a big piece of how we can unearth the similarities and differences.
+Dave Anderson  
+When we worked with Matt Coulter as architects, we could see right across the organisation of Liberty Mutual. That was really handy, because you could spot those patterns. 10 years ago, when we had different platforms, it was a nightmare.  But today there's a convergence on AWS, because everyone's in the same space. So there's no excuse. Even with two different languages, the same architectural patterns are there. So I think that has made it easier.
+Mike O'Reilly  
+Well architected is all about consistency as well. Once you identify the patterns, well architected is the consistent benchmark of guidance and advice on how this thing should be set up and architected effectively.  Once you get it in place, it should facilitate that convergence.
+Software Accelerator and CDK
+Matt Coulter  
+We have a strong process or culture of sharing reusable patterns that work.  Mark did a talk at CDK Day about the software accelerator and how it's used with AWS CDK. We allow anybody to contribute a pattern that's working software to our accelerator. And then everyone else can just use that.
+Now, whenever I talk about the divergence and convergence, every team could theoretically contribute a slight variation on the same pattern. So that's where if you use the well architected framework, you can assess them all. And then you can say, of all these patterns, we don't need to delete all of the duplicate ones. But this one here is the well architected one, this is the one we're going to put at the top of the page. And this is the one we think everyone should contribute to and converge on. So that's how we use it with those two things combined.
+Guardrails are key for contribution
+Mark McCann  
+The guardrails are key to enabling that contribution as well. There were good, enabling constraints, or enterprise guardrails. So developers contributing had to adhere to the standards for the enterprise. That made it easy for them to contribute and get rapid feedback that their pattern or solution was adhering to standards.
+It's one thing to say, you have an Open Source community, but then make it impossible for anybody to get over the bar of contribution. It's another to make that contribution easy. I'm happy with those internal blogs on contributing showing how easy and how quickly you can do this.
+One of the key elements is to get developers through step one, two, and three, and then they can go the rest of the way themselves. With big waves of technology change there can be fear, uncertainty and doubt.  But getting them started down a particular path, opens it up for them to take the next step.
+Wardley Mapping
+Dave Anderson  
+Matt, do you think Wardley mapping helped us to figure out what constraints we needed at Liberty Mutual? Or did it help engineers see the way forward? What's your opinion on that, Matt?  How much do you think that helped on this journey? 
+Matt Coulter  
+I would actually say the Wardley mapping that we did was a game changer at Liberty Mutual. I don't want to undersell it.  At a point in time, Mark and I were dropped into a new market with a couple of 100 developers all working on different apps. We knew the direction we wanted to go was serverless first. 
+By using Wardley maps, we could understand our current positioning and form a strategy for what we wanted to do. So we were able to see exactly all of the technical debt, the code liability between all of the teams and we could see how to have the most impact with the patterns and the enablement that we wanted to go for. I personally think that was key to the process.
+Dave Anderson  
+It's key to be able to talk people through that evolution axis, for example, see this big complicated thing you are having lots of trouble with? That needs to go into this new thing that you can replace it with.  And those tens of thousands of lines of code can become practically nothing.  That's an easy sell.
+Identifying the candidate list for pre built patterns
+Mark McCann  
+Mike, you mentioned earlier about spotting the patterns that you should coalesce around.  The maps helped identify the commonalities and problems that engineers were having. So that becomes your candidate list for things we should consider for creating pre built patterns.  We need to address the needs of developers on the ground.
+Mike O'Reilly  
+I remember the process you guys went through.  We did a similar one within our market.  It's okay if one squad is causing an inefficiency in the value stream eg. managing an ops server or database cluster. But when you come across that with 30 squads, then you begin to quantify the actual effect on the broader organisation.  It's a duplication of effort and lost developer hours in terms of productivity.
+At the time, they were largely tech stack Wardley maps, where we were mapped the various tech stacks leveraged across the squads. A developer enablement team with that information can penetrate the market by identifying which patterns are going to add most value.  I am sure you remember which pattern you released first and if it took off.
+Wardley Maps applied at Liberty Mutual
+Matt Coulter  
+There was a point in time where all the Wardley maps were layered on top of each other for every team, making an uber map. Every map is imperfect and wrong. We were just as biased for each map so when you layered them on top of each other, they were comparable. You could draw the line to say we want you to be close to your customer. And you could see how much of the market was doing undifferentiated, heavy lifting!  
+Then you could physically draw a line and say, we want you to transition that from there to here. And by drawing that line and making it visual is different from phoning somebody and saying, I want you to move.
+Situational Awareness
+Dave Anderson  
+A couple of times the person drawing the map would say 'this thing is really important'. And then when they drew the map it was way down at invisible commodity and then would ask why is it sitting there? We don't need to be doing that. They made the realisation themselves: 'ah wow, stop doing that!'.
+Wardley mapping is like a pair of binoculars, because you can see for miles. It gives you a huge vision of what's happening.
+Mark McCann  
+As Matt mentioned, when we dropped into that new market, it (Wardley mapping) was a rapid accelerator to understand what we had got ourselves into. Very quickly you get up to speed, as an architect I can understand the landscape. Now I can understand where I can make an impact.  I can understand the next right moves.  For any aspiring leader or architect, mapping gives situational awareness to do that next right thing.
+Matt Coulter and CDK Patterns
+Dave Anderson  
+So there was a Value Flywheel effect there. But as you mentioned at the top of the chat Matt, CDK was massive. I personally think that was an unbelievable accelerator. Do you think you would have made as much progress without CDK?  After all, CDK's cloud development kit and those patterns enabled you to create a piece of infrastructure in seconds. Do you think you would have made the same progress without CDK?
+Matt Coulter  
+It is a fascinating question. For anybody who's watching this and doesn't know CDK, the difference between it and traditional infrastructure as code is that CDK is focused on building your infrastructures through programming languages like TypeScript, Python, or .Net.  The whole point is to bring the cloud to the developer, as opposed to making the developer learn to manage things like CloudFormation templates, which could be 1000s of lines of Yaml. And on one hand, the CloudFormation templates are beautifully succinct.
+AWS CDK construct
+On the other hand, if you're a developer who spends every day working with business logic, whenever you transition to the Yaml file, personally, my head goes and I lose track of it. Whenever I first saw AWS CDK, I give credit to Mark, because he kept dropping hints about it for weeks, so he got me to go 'what is this CDK thing?'. I took a really common use case for us at the time, which was like a private API gateway with a custom authorizer lambda.  That was about 1500 lines of CloudFormation template. And on top of that, it also had a load of quirks. (Since then, they have fixed a lot of the quirks).
+But you had to manually modify pieces of the CloudFormation every deployment, otherwise, your gateway didn't deploy. I took that and built an AWS CDK construct. This was pretty much a week after AWS CDK went GA. I was able to reduce that whole thing down to a maximum of 14 lines. That was really five lines of code. It enables you to write local unit tests.
+Removing cognitive burden for Developers
+And it brought in our DevOps practices, because from a developer perspective, it is just TypeScript. And we know how to handle TypeScript. So I think that shift gave us a kickstart in the developer mindset as opposed to sitting around to tell our CloudFormation horror stories of the things that we'd broken and couldn't backtrack off.
+Dave Anderson  
+It just made it easy. You could IM someone a couple of lines of CDK and it would work. That would never happen in cloud formation. 
+Mark McCann  
+The timing was perfect because a lot of developers were starting to read about the cloud, but it was terrifying to them. Like the old stories about running up big AWS bills on their private accounts.  When CDK patterns came it demystified it and allowed them to lower the cognitive burden and the barrier to entry.
+And one thing you didn't really mention is that the pattern you created was incorporated into our CI CD pipeline, it followed all the enterprise standards and all the checks and balances that an enterprise needs. So it removes that friction for developers to experiment, and just try it out without the fear of blowing up the cloud or am I gonna take down all internal systems?
+Developer Community
+Mike O'Reilly  
+Having that developer community in place, also helps with CDK, and harnessing the economies of scale that you can get in a big organisation. When you've got that funnel with the accelerator and platform, developers can leverage other team's constructs, and also contribute certain things back. 
+The CDK patterns that you set up with an open source funnel, channel and contributions from the broader community, helped centre people.  So they didn't go off, and start from scratch constantly, or go off in 50 different directions. You don't want an organisation with 50 different flavours of the same construct.
+Matt Coulter  
+What you said there is key.  I originally described why I got interested in AWS CDK. But since that time, I have seen dozens of amazing technologies fail, because they didn't build the community around it. It's sitting there shining right into the corner, and nobody's noticing it.
+The importance of storytelling
+The vast majority of the work that I've been doing over the past couple of years is storytelling, and actually getting people engaged. So instead of a lone person trying to effect change across hundreds of people, the only way I knew how to do it was to take the best of Cloud and bring it inside Liberty.
+That's why I started looking at how we should be building serverless architectures. What are the industry experts saying? They were people such as AWS heroes like Jeremy Daly. It was key to go out and look at the best patterns, build them open source and say this is the pattern, let's discuss it,  And then bring a slightly modified version of that pattern into Liberty.  But tweak it for compliance, audit and our general needs.
+It changed the conversation from trying to custom build everything for us to let's engage with the wider community. And let's try and build things together. I do think if I was trying to do it again, that part has been a massive success. And I wouldn't I wouldn't change anything about that story. I do think trying to try to get the developers to look outside is the big difference. 
+Going external for existence proof
+Dave Anderson  
+That was a super multiplier because by going external, the influence internally is a pattern of existence proof. That got you loads of press with AWS and Werner Vogel. At the Summit last year, he gave you a couple of name checks and that amplifies it again.   It's amazing to see that validation and that builds up a lot of authority in the space.
+Mark McCann  
+For the first time, developers could find the answers by doing a Google search and finding CDK patterns.com or the pattern generator or technology that they were using internally.  Previously, in big enterprises, the software that teams worked on could be so bespoke that there wasn't much external help. 
+Now there's videos, courses, YouTube, patterns, and websites supporting the general direction.  That is the game changer. It's self study with Cloud Guru courses and Pluralsight supporting the direction of travel.
+CDK Construct Example
+Mike O'Reilly  
+There was a cracking example, and I don't like going into specifics, but I remember one scenario where we'd been working a long time on getting a particular capability enabled. And it was taking a wee bit of time. But, in the background, we had a squad who was effectively standing a higher order CDK construct. Don't quiz me on the level! Would that have been an L3 construct? It was an L3 construct sitting ready to go.
+So as soon as that got approval, it was pushed out into the broader portfolio and was ready to be consumed by the whole organisation.  That was a very powerful enabler. In the past the approach would have been: 'I need to educate these 40 engineers on the specifics and nuance the architecture, and that would have been a far slower rollout. Rather it was literally a construct ready to consume which was phenomenal.
+Open source patterns
+Matt Coulter  
+I personally got value from open source patterns. As an architect, when I want to introduce a new capability into the org, like 'X ray' for doing your distributed tracing across your architectures,  I can build the CDK pattern and put it out there to find flaws documented on the CDK pattern. 
+So before I bring it into Liberty for teams to use, I'm having the conversations with AWS (as the enabling architect for this account), on what I need AWS to do before we can use this. That takes the frustration away and prevents every team hitting the same issue, getting annoyed, leading to a collective buildup of frustration from all the developers.  Whereas I was taking it for them. And they knew they could come to me and ask that question. And I think that works really well. 
+Mark McCann  
+It's flow efficiency by removing impediments continuously. You're going ahead of the game by removing all the impediments, so when the teams adopt X ray, in this example, they're not going to get all these impediments
+The Value Flywheel Effect
+Dave Anderson  
+It's the same pattern that Amazon uses. It's ILC: the innovate, leverage and commoditize cycle. We talk about the Value Flywheel Effect. And the fact that you build clarity of purpose, you map to remove the impediments, drive forward the technology and finally you go for long term value. So it's that same cycle. 
+Amazon does that in their own space. But you were doing that as well with an exciting pattern, by leveraging and commoditizing it and letting the developers move up. So Matt, in your opinion, if you were a company watching this how can you get going? What does it take for someone to get started?
+Matt Coulter  
+If you're only getting going, I think you can skip a few steps. A lot of things have evolved over the past couple of years. If you study where the industry has been going, a lot of big companies will tell you what they've been doing.
+Empowerment, enablement and lifting your developers up
+The story is about empowerment and enablement and lifting your developer's up. But it is also about making sure you have those enabling constraints to keep them together. And that's why you hear about Spotify's Golden Path Model specifically paving the road for an implementation. It's okay if you want to deviate from it. But if you deviate, you're on your own. Whereas if you stay on the golden path, they'll keep it up to date and maintained. 
+So if I was starting today, I would go in and do Wardley mapping, like we mentioned earlier and say what is our landscape, what is our golden path going to be?  And make it so easy to follow the golden path that the developers won't even think about going elsewhere.
+Create the right environment
+So it's not a case of saying you have to do this, it's a case of someone who will suggest not doing it. And everyone will say why would we not do it, because this is the right thing to do.
+That's the environment you're trying to create. And that's based on the AWS Well Architected Framework and Serverless First ideologies, because it enables you to specifically get down to the golden path. 
+If you go for a containerized route, you can't get as detailed with what your golden path is going to be. Because it'll be like: 'we use Spring Boot'..... 'but we use Microservices'. Whereas if you go with serverless, you can say these are the core technologies we want to leverage in these instances and this is our orchestrator. It really does show the commonalities between teams and makes the golden path easier.
+Dave Anderson  
+You can be finely grained in your enabling constraints. 
+Time to value is key
+Mark McCann  
+I think fast time to value is key. When developers are starting to embrace the golden path and patterns, the speed of delivering value is unheard of. And that builds momentum that keeps the flywheel turning. That means they don't want to get off that golden path because they're seeing value being delivered really rapidly.
+Mike O'Reilly  
+You also create that avenue for off roading as well. It's okay for teams to go and experiment on new routes or pathways and they accept the fact that they're just going to go slow. But if it works out, there's a wee bit of investment from the community when they bring that back in and extend the path offering. 
+You can do that when you've got the community and those facilities that funnel and harvest the efforts from the squads. It's another flywheel thing - once you do it, it becomes self-sustaining and looks after itself.  Culture leads to that as well. 
+Notes
+Dave Anderson  
+So that's the craic. Thanks very much Matt. We appreciate your time. I hear you have a book coming out - your CDK book.
+Matt Coulter  
+So funnily enough it's a relevant topic. You can go to thecdkbook.com. A few of us got together and went through the details of all you'll ever want to know about AWS CDK. It's out now.
+Dave Anderson  
+We have our own book that's coming out: The Value Flywheel Effect. We're still blogging away on theserverlessedge.com. So we might see you again for another talk?
+Matt Coulter  
+Hopefully this isn't the end of me in the public realm!
+Dave Anderson  
+Alright folks, thanks very much!
+",The Serverless Edge,false

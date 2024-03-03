@@ -1,0 +1,11 @@
+<h2><%= @albums[0][0] %></h2>
+<ul>
+  <% @albums.each do |e| %>
+    <li>
+      <a href="/albums/<%= e[3] %>">
+        <h1><%= e[1] %></h1>
+        <p><%= e[2] %></p>
+      </a>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  min-height: 100vh;
+  font-size: min(4vw, 15px);
+  font-family: 'Roboto', sans-serif;
+  color: snow;
+  background-color: rgb(18, 30, 36);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) 50%,
+                                    rgba(0, 0, 0, 0.2) 90%, rgba(18, 30, 36, 1) 100%),
+                    url(images/mediumBackground1080.jpg);
+  background-position: 50% 65%;
+  background-size: cover;
+  height: 100vh;
+}
+
+#banner {
+  width: min(80vw, 800px);
+  margin: 0 auto;
+  padding: 50px 0 20px;
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+  flex-direction: column;
+  box-sizing: border-box;
+  text-align: center;
+  opacity: 90%;
+  font-size: min(4vw, 20px);
+}
+
+h1 {
+  padding-top: 50px;
+}
+
+.banner-footer {
+  display: flex;
+  justify-content: space-between;
+  opacity: 30%;
+}
+
+.container{
+  width: min(80vw, 700px);
+  margin: 30px auto;
+  color: rgb(240, 240, 240);
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+h2 {
+  padding-bottom: 20px;
+  font-weight: 300;
+}
+
+.hidden{
+  display: none;
+}
+
+.link {
+  width: min(60%, 250px);
+  padding: 15px;
+  margin: 40px auto;
+  border-radius: 5px;
+  text-align: center;
+  font-size: min(4vw, 20px);
+  cursor: pointer;
+  display: block;
+}
+
+.link:hover > .visible{
+  display: none;
+}
+
+.link:hover > .hidden {
+  display: inline;
+}
+
+.neon {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: bold;
+
+  color: #fff;
+  text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px #f09,
+    0 0 82px #f09,
+    0 0 92px #f09,
+    0 0 102px #f09,
+    0 0 151px #f09;
+    box-shadow: 0 0 .2rem #fff,
+    0 0 .2rem #fff,
+    0 0 2rem #bc13fe,
+    0 0 0.8rem #bc13fe,
+    0 0 2.8rem #bc13fe,
+    inset 0 0 1.3rem #bc13fe;
+    animation: pulsate 0.11s ease-in-out infinite alternate;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+footer {
+  background-color: rgba(12, 12, 14, 0.4);
+  height: 30px;
+  display: flex;
+  padding: 10px;
+  box-sizing: border-box;
+  justify-content: end;
+  align-items: center;
+}
+
+.fa-github {
+  font-size: 1.4em;
+}
+
+
+@media(min-width: 768px) {
+  header {
+    height: 500px;
+  }
+  .banner-footer {
+    opacity: 0;
+  }
+}
+
+@media(min-width: 992px) {
+  header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) 50%,
+                                      rgba(0, 0, 0, 0.2) 90%, rgba(18, 30, 36, 1) 100%),
+                      url(images/mediumBackground2560.jpg);
+  }
+}

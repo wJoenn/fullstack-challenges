@@ -1,0 +1,18 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: #1e161e;
+  height: 100%;
+  padding: 25px;
+  font-weight: bold;
+  gap: 25px;
+}
+
+.sidebar__link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.link-active, .sidebar__link:hover {
+  color: snow;
+}

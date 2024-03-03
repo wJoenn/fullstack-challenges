@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: blue;
+  display: block;
+  margin: 0 auto;
+  color: snow;
+  border: none;
+}
+
+.hidden {
+  display: none;
+}
+
+td {
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+}
+
+.player1 .active {
+  background-image: url(../img/player_1.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.player2 .active {
+  background-image: url(../img/player_2.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+tr td:last-child {
+  background-image: url(../img/finish.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.player1 td:last-child.active {
+  background-image: url(../img/player_1.png), url(../img/finish.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.player2 td:last-child.active {
+  background-image: url(../img/player_2.png), url(../img/finish.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}

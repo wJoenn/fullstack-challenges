@@ -1,0 +1,14 @@
+.tabs {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.tabs a {
+  height: 35px;
+}
+
+.tabs a:hover {
+  color: snow;
+  border-bottom: 3px solid rgb(60, 60, 60);
+}
